@@ -15,8 +15,9 @@ import dto.*;
 public class TestJPA {
 
 	public static void main(String[] args) {
+		// testPeso();
 		// eliminaTreno();
-		creaTreno();
+		 creaTreno();
 		//utenti();
 	}
 	
@@ -46,6 +47,16 @@ public class TestJPA {
 		entitymanager.close();
 		emFactory.close();
 	}
+	
+	public static void testPeso() {
+
+		System.out.println("Test peso");	
+		TrenoBuilder builderTN = new TNBuilder();
+		
+		Treno trenoTN = builderTN.costruisci("HCCCCC");
+		
+		System.out.println(trenoTN);
+	}
 
 	public static void creaTreno() {
 		System.out.println("Test treno");
@@ -66,20 +77,23 @@ public class TestJPA {
 		EntityManagerFactory emFactory = Persistence.createEntityManagerFactory("Eclipselink_JPA");
 		EntityManager entitymanager = emFactory.createEntityManager();
 		entitymanager.getTransaction().begin();
-		
-		UtenteDTO utente = new UtenteDTO("provaConTreno", "provaConTreno");
-		UtenteDTO utente2 = new UtenteDTO("provaConTreno2", "provaConTreno2");
-		
+				
 		UtenteDao utenteDao = UtenteDaoImpl.getInstance();
 		
-		utenteDao.add("provaConTreno", "provaConTreno");
-		utenteDao.add("provaConTreno2", "provaConTreno2");
+		if (utenteDao.findByUsername("utenteTest1") != null) {
+			utenteDao.deleteUtenteByID(utenteDao.findByUsername("utenteTest1").getId());
+		}
 		
-		trenoDao.add(trenoTN, utente);
-		trenoDao.add(trenoTN2, utente);
-		trenoDao.add(trenoTN3, utente2);
-		trenoDao.add(trenoTN4, utente2);
+		utenteDao.add("utenteTest1", "psw1");
+		
+		trenoDao.add(trenoTN, utenteDao.findByUsername("utenteTest1"));
+		trenoDao.add(trenoTN2, utenteDao.findByUsername("utenteTest1"));
+		trenoDao.add(trenoTN3, utenteDao.findByUsername("utenteTest1"));
+		trenoDao.add(trenoTN4, utenteDao.findByUsername("utenteTest1"));
 		System.out.println(trenoTN);
+		System.out.println(trenoTN2);
+		System.out.println(trenoTN3);
+		System.out.println(trenoTN4);
 
 //
 //		entitymanager.persist(trenoDao.add(trenoTN, utente));

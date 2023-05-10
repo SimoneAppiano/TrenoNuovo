@@ -1,6 +1,7 @@
 package builder;
 import treno.Treno;
 import exception.*;
+import vagoni.Locomotiva;
 import vagoni.Vagone;
 public abstract class TrenoBuilder {
 	
@@ -27,9 +28,7 @@ public abstract class TrenoBuilder {
 				Vagone v;
 				switch (sigla.charAt(i)) {
 				case 'H':
-					v = costruisciLocomotiva();
-					//inserire peso trainante
-					t.aggiungiVagone(v);
+					t.setLocomotiva(costruisciLocomotiva());
 					break;
 				case 'P':
 					v = costruisciPasseggeri();
@@ -60,6 +59,6 @@ public abstract class TrenoBuilder {
 
 	protected abstract Vagone costruisciPasseggeri();
 
-	protected abstract Vagone costruisciLocomotiva();
+	protected abstract Locomotiva costruisciLocomotiva();
 
 }
