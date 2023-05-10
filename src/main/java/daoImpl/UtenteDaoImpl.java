@@ -9,9 +9,8 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
-import org.springframework.ui.Model;
-
 import dao.UtenteDao;
+import dto.TrenoDTO;
 import dto.UtenteDTO;
 import exception.UtenteGiaRegistratoException;
 
@@ -115,8 +114,17 @@ public class UtenteDaoImpl implements UtenteDao {
 		return null;
 	}
 
-	public void deleteUtente() {
-		// TODO Auto-generated method stub
+	public void deleteUtenteByID(int id) {
+		EntityManagerFactory emFactory = Persistence.createEntityManagerFactory("Eclipselink_JPA");
+		EntityManager entitymanager = emFactory.createEntityManager();
+		entitymanager.getTransaction().begin();
+		
+		UtenteDTO u = entitymanager.find(UtenteDTO.class, id);
+		entitymanager.remove(u);
+		
+		entitymanager.getTransaction().commit();
+		entitymanager.close();
+		emFactory.close();	
 
 	}
 
