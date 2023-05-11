@@ -13,7 +13,7 @@ public interface UtenteDao {
 
 	public UtenteDTO findByPassword(String password);
 
-	public void deleteUtente();
+	public void deleteUtenteByID(int id);
 
 	public UtenteDTO findByID(int id);
 
