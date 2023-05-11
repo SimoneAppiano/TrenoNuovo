@@ -6,7 +6,7 @@ public class FRLocomotiva extends Locomotiva {
 
 	public FRLocomotiva() {
 		super(170);
-		super.setPeso(20);
+		super.setPeso(40);
 	}
 
 }
