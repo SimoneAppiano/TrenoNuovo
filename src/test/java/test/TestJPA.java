@@ -86,11 +86,11 @@ public class TestJPA {
 		
 		utenteDao.add("utenteTest1", "psw1");
 		
-		trenoDao.add(trenoTN, utenteDao.findByUsername("utenteTest1"));
-		trenoDao.add(trenoTN2, utenteDao.findByUsername("utenteTest1"));
-		trenoDao.add(trenoTN3, utenteDao.findByUsername("utenteTest1"));
-		trenoDao.add(trenoTN4, utenteDao.findByUsername("utenteTest1"));
-		System.out.println(trenoTN);
+//		trenoDao.add(trenoTN, utenteDao.findByUsername("utenteTest1"));
+//		trenoDao.add(trenoTN2, utenteDao.findByUsername("utenteTest1"));
+//		trenoDao.add(trenoTN3, utenteDao.findByUsername("utenteTest1"));
+//		trenoDao.add(trenoTN4, utenteDao.findByUsername("utenteTest1"));
+//		System.out.println(trenoTN);
 		System.out.println(trenoTN2);
 		System.out.println(trenoTN3);
 		System.out.println(trenoTN4);

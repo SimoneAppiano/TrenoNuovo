@@ -27,9 +27,9 @@ public class TrenoDaoImpl implements TrenoDao{
 		else return instance;
 	}
 	
-	public TrenoDTO add(Treno treno, UtenteDTO utente) {
+	public TrenoDTO add(Treno treno, UtenteDTO utente, String tipo) {
 		
-		TrenoDTO trenoDTO = new TrenoDTO(treno.getSigla().toUpperCase(), treno.getPeso(), utente); // treno.getPeso() 
+		TrenoDTO trenoDTO = new TrenoDTO(treno.getSigla().toUpperCase(), treno.getPeso(), utente, tipo); // treno.getPeso() 
 		EntityManagerFactory emFactory = Persistence.createEntityManagerFactory("Eclipselink_JPA");
 		EntityManager entitymanager = emFactory.createEntityManager();
 		entitymanager.getTransaction().begin();
@@ -41,11 +41,6 @@ public class TrenoDaoImpl implements TrenoDao{
 		emFactory.close();
 
 		return trenoDTO;
-	}
-
-	public Treno updateTreno(Treno treno) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	public void deleteTreno(int id) {
