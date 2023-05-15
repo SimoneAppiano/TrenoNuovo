@@ -6,7 +6,7 @@ public class FRCargo extends Cargo {
 
 	public FRCargo() {
 		super();
-		super.setPeso(50);
+		super.setPeso(100);
 	}
 
 }
