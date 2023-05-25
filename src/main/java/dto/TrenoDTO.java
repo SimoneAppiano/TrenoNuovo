@@ -74,6 +74,10 @@ public class TrenoDTO {
 		this.utente = utente;
 	}
 	
+	public Boolean getAdmin() {
+		return this.utente.getAdmin();
+	}
+	
 	public String getTipo() {
 		return tipo;
 	}

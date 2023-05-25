@@ -7,5 +7,10 @@ public class Cargo extends Vagone implements Carrozza{
 		super();
 	}
 
+	public String getImg() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 }

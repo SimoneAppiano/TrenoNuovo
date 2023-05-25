@@ -31,9 +31,21 @@ public class UtenteDTO {
 	
 	@Column
 	private String email;
+	
+	@Column
+	private Boolean admin;
 //	
 //    @OneToMany(mappedBy = "id", cascade = CascadeType.ALL)
 //    private List<TrenoDTO> trenoDto = new ArrayList<>();
+
+	public void setAdmin(Boolean admin) {
+		this.admin = admin;
+	}
+	
+	public Boolean getAdmin() {
+		return this.admin;
+	}
+	
 
 	public UtenteDTO(String username, String password) {
 		super();

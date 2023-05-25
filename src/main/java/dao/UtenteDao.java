@@ -8,7 +8,7 @@ public interface UtenteDao {
 	public void add(String username, String password);
 
 	public UtenteDTO findByUsername(String username);
-
+	
 	public UtenteDTO findByPassword(String password);
 
 	public void deleteUtenteByID(int id);

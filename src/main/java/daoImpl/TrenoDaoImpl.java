@@ -70,7 +70,6 @@ public class TrenoDaoImpl implements TrenoDao{
 
 	    Root<TrenoDTO> variableRoot = query.from(TrenoDTO.class);
 	    query.select(variableRoot);
-	    System.out.println(entitymanager.createQuery(query).getResultList() + "Sono nella lista treni");
 		return entitymanager.createQuery(query).getResultList();
 	}
 	
@@ -85,7 +84,6 @@ public class TrenoDaoImpl implements TrenoDao{
 
 	    Root<TrenoDTO> variableRoot = query.from(TrenoDTO.class);
 	    query.select(variableRoot);
-	    System.out.println(entitymanager.createQuery(query).setMaxResults(5).getResultList() + "Sono nella lista treni");
 		return entitymanager.createQuery(query).getResultList();
 	}
 
