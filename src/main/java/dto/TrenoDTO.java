@@ -34,12 +34,16 @@ public class TrenoDTO {
 	// private Utente utente;
 	// rispecchia tabella del database
 	
+	@Column
+	private String tipo;
 	
-	public TrenoDTO(String sigla, double peso, UtenteDTO utente) {
+	
+	public TrenoDTO(String sigla, double peso, UtenteDTO utente, String tipo) {
 		super();
 		this.sigla = sigla;
 		this.peso = peso;
 		this.utente = utente;
+		this.tipo = tipo;
 	}
 	public TrenoDTO() {
 
@@ -68,6 +72,17 @@ public class TrenoDTO {
 	}
 	public void setUtente(UtenteDTO utente) {
 		this.utente = utente;
+	}
+	
+	public Boolean getAdmin() {
+		return this.utente.getAdmin();
+	}
+	
+	public String getTipo() {
+		return tipo;
+	}
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
 	@Override
 	public String toString() {

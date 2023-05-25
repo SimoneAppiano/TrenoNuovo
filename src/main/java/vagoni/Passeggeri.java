@@ -13,6 +13,11 @@ public class Passeggeri extends Vagone implements Carrozza{
 		return numPasseggeri;
 	}
 
+	public String getImg() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 
 }

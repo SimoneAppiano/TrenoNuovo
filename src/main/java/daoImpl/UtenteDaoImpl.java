@@ -9,9 +9,8 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
-import org.springframework.ui.Model;
-
 import dao.UtenteDao;
+import dto.TrenoDTO;
 import dto.UtenteDTO;
 import exception.UtenteGiaRegistratoException;
 
@@ -65,8 +64,6 @@ public class UtenteDaoImpl implements UtenteDao {
 		
 	    List<UtenteDTO> listaUtentiDTO = listaUtenti();
     
-	    UtenteDTO utenteFinal = new UtenteDTO();
-	    
 	    for (UtenteDTO u : listaUtentiDTO) {
 	    	if (u.getUsername().equals(username)) {
 
@@ -83,8 +80,6 @@ public class UtenteDaoImpl implements UtenteDao {
 		
 	    List<UtenteDTO> listaUtentiDTO = listaUtenti();
     
-	    UtenteDTO utenteFinal = new UtenteDTO();
-	    
 	    for (UtenteDTO u : listaUtentiDTO) {
 	    	if (u.getUsername().equals(username) && u.getPassword().equals(password)) {
 	    		
@@ -110,13 +105,17 @@ public class UtenteDaoImpl implements UtenteDao {
 
 	}
 
-	public UtenteDTO updateUtente(UtenteDTO utente) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public void deleteUtente() {
-		// TODO Auto-generated method stub
+	public void deleteUtenteByID(int id) {
+		EntityManagerFactory emFactory = Persistence.createEntityManagerFactory("Eclipselink_JPA");
+		EntityManager entitymanager = emFactory.createEntityManager();
+		entitymanager.getTransaction().begin();
+		
+		UtenteDTO u = entitymanager.find(UtenteDTO.class, id);
+		entitymanager.remove(u);
+		
+		entitymanager.getTransaction().commit();
+		entitymanager.close();
+		emFactory.close();	
 
 	}
 

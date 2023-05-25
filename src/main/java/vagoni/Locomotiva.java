@@ -49,5 +49,10 @@ public class Locomotiva extends Vagone implements Carrozza, Motrice{
 	public void setId(int id) {
 		this.id = id;
 	}
+
+	public String getImg() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }

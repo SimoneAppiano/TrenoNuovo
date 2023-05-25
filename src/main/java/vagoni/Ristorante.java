@@ -13,5 +13,10 @@ public class Ristorante extends Vagone implements Carrozza{
 		return numCoperti;
 	}
 
+	public String getImg() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 }
